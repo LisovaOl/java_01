@@ -10,4 +10,46 @@
  */
 
 const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
-const loginToFind = 'aj4xth3m4n';
+const loginToFind = 'poly1scute';
+
+        // +++++++++= Вариант 1 +++++++++++++
+
+// let message = `Пользователь ${loginToFind} не найден.`;
+
+// for (let i = 0; i < logins.length; i += 1) {
+//   const login = logins[i];
+
+//   console.log('Login: ', login);
+//   console.log(`${login} === ${loginToFind}: `, login === loginToFind);
+
+//   if (login === loginToFind) {
+//     console.log('Ура, равны!!!');
+//     message = `Пользователь ${loginToFind} найден.`;
+//     break;
+//   }
+// }
+
+// console.log(message);
+
+        // +++++++++= Вариант 2 +++++++++++++
+
+// for (const login of logins) {
+//   console.log('Login: ', login);
+//   console.log(`${login} === ${loginToFind}: `, login === loginToFind);
+
+//   if (login === loginToFind) {
+//     console.log('Ура, равны!!!');
+//     message = `Пользователь ${loginToFind} найден.`;
+//     break;
+//   }
+// }
+
+// console.log(message);
+
+        // +++++++++= Вариант 3 тренерный код +++++++++++++
+
+const message = logins.includes(loginToFind)
+  ? `Пользователь ${loginToFind} найден.`
+  : `Пользователь ${loginToFind} не найден.`;
+
+console.log(message);
