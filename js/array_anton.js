@@ -9,14 +9,18 @@
 //     Вставьте «Country» и «Reggy» в начало массива.
 
 const genres = ['Jazz', 'Blues'];
-genres.push('Рок-р-рол');
-console.log(genres[0]);
-console.log(genres[genres.length - 1]);
+genres.push('Рок-р-рол'); //     Добавьте «Рок-н-ролл» в конец.
 
-const deleteGenres = genres.splice(0, 1);
+console.log(genres[0]);  //     Выведите в консоль первый элемент массива.
 
-console.log(deleteGenres);
-genres.unshift('Country', 'Reggy');
+console.log(genres[genres.length - 1]); //Останній елемент
+console.log(genres.at(-1)); //Останній елемент
+
+const deleteGenres = genres.splice(0, 1); //     Удалите первый элемент и выведите его в консоль.
+
+console.log(deleteGenres); //     Удалите первый элемент и выведите его в консоль.
+genres.unshift('Country', 'Reggy'); //     Вставьте «Country» и «Reggy» в начало массива.
+
 
 console.table(genres);
 
