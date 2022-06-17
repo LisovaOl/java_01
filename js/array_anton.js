@@ -61,7 +61,7 @@ const namesMod = names.split(','); //розділення на окремі си
 
 const phonesMod = phones.split(','); //розділення на окремі символи
 for (let i = 0; i < namesMod.length; i += 1) {
-//   console.log(`${namesMod[i]} -- ${phonesMod[i]}`);
+  console.log(`${namesMod[i]} -- ${phonesMod[i]}`);
 }
 
 // ==============  Example 5 - Массивы и строки ================
