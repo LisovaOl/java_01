@@ -12,14 +12,12 @@
 // console.log(a * b);
 // console.log(a / b);
 
-
 // // Создайте переменные c=15 и d=2. Просуммируйте их, а результат присвойте переменной result. Выведите на экран значение переменной result.
 
 // const c = 15
 // const d = 2
 // let result = c + d
 // console.log(result)
-
 
 // Создайте переменные a=10, b=2 и c=5. Выведите на экран их сумму.
 // const a = 10
@@ -72,7 +70,6 @@
 
 // alert(`Your number ${num2}`);
 
-
 // Создайте переменную str и присвойте ей значение 'abcde'. Обращаясь к отдельным символам этой строки выведите на экран символ 'a', символ 'c', символ 'e'.
 // const str = "abcde"
 // console.log(str[0])
@@ -84,3 +81,26 @@
 // let num2 = 1 * 2 * 3 * 4 * 5;
 
 // console.log(num2);
+
+// Объявите две переменные: admin и name.
+// Запишите строку "Джон" в переменную name.
+// Скопируйте значение из переменной name в admin.
+// Выведите на экран значение admin, используя функцию alert (должна показать «Джон»).
+
+let nameMy = '354';
+console.log((nameMy));
+// console.log(name);
+ //-------------------5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ // let userName = prompt('What is your name?', 'John');
+// alert(`Your name is ${userName}`)
+
+let apples = "2";
+let oranges = "3";
+
+console.log(apples + oranges); // "23", так как бинарный плюс объединяет строки
+
+console.log( Number(apples) + Number(oranges) ); // 5//преобразование к числу.
+console.log(+apples + +oranges); //преобразование к числу короткий метод
+
+
