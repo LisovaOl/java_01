@@ -15,6 +15,19 @@
 // // .
 // // добавить новое свойство
 // // .
+
+// ---- добавать новий объект с свойствами; 
+// location - місце розташування квартири, об'єкт з наступними вкладеними властивостями;
+
+//     country - країна, рядок "Jamaica";
+//     city - місто, рядок "Kingston".
+
+
+// apartment.location = {country: "Jamaica", city: "Kingston"};
+
+
+// book.genres.push("drama"); // добавить елемент массива
+
 // playList.author = 'singer-1'; // если такого значения нету, то оно добавиться.
 // console.log(playList);
 
@@ -219,62 +232,66 @@ console.log(getAllNames(friends));
 // /*
 //  * Получаем имена только друзей которые онлайн
 //  */
-// const getOnlineFriends = function (allFriends) {
-//   const onlineFriends = [];
 
-//   for (const friend of allFriends) {
-//     console.log(friend);
-//     console.log(friend.online);
 
-//     if (friend.online) {
-//       onlineFriends.push(friend);
-//     }
-//   }
+const getOnlineFriends = function (allFriends) {
+  const onlineFriends = []; //новый массив для друзей онлайн
 
-//   return onlineFriends;
-// };
+  for (const friend of allFriends) {
+    // console.log(friend); // перебираем друзей
+    // console.log(friend.online); // перебираем друзей онлайн
 
-// // console.log(getOnlineFriends(friends));
+    if (friend.online) {
+      onlineFriends.push(friend); // если друг онлайн добавить в новый массив
+    }
+  }
 
-// const getOfflineFriends = function (allFriends) {
-//   const offlineFriends = [];
+  return onlineFriends; // вернуть новый массив
+};
 
-//   for (const friend of allFriends) {
-//     console.log(friend.online);
+// console.log(getOnlineFriends(friends));
 
-//     if (!friend.online) {
-//       offlineFriends.push(friend);
-//     }
-//   }
+//////// пошук друзей офлайн
+// 
+const getOfflineFriends = function (allFriends) {
+  const offlineFriends = [];
 
-//   return offlineFriends;
-// };
+  for (const friend of allFriends) {
+    console.log(friend.online);
 
-// // console.log(getOfflineFriends(friends));
+    if (!friend.online) {
+      offlineFriends.push(friend);
+    }
+  }
+
+  return offlineFriends;
+};
+
+console.log(getOfflineFriends(friends));
 
 // // создать 2 массива онлайн и офлайн?
 // // если тру - в первый, если нет - во второй
 
-// const getFriendsByStatus = function (allFriends) {
-//   const friendsByStatus = {
-//     online: [],
-//     offline: [],
-//   };
+const getFriendsByStatus = function (allFriends) {
+  const friendsByStatus = { //Создаем объект с двумя массивами
+    online: [],
+    offline: [],
+  };
 
-//   for (const friend of allFriends) {
-//     if (friend.online) {
-//       friendsByStatus.online.push(friend);
-//       continue;
-//     }
+  for (const friend of allFriends) { // перебираем друзей 
+    if (friend.online) {
+      friendsByStatus.online.push(friend);
+      continue;
+    }
 
-//     friendsByStatus.offline.push(friend);
+    friendsByStatus.offline.push(friend);
 
-//     // const key = friend.online ? 'online' : 'offline';
-//     // friendsByStatus[key].push(friend);
-//   }
+    // const key = friend.online ? 'online' : 'offline';
+    // friendsByStatus[key].push(friend);
+  }
 
-//   return friendsByStatus;
-// };
+  return friendsByStatus;
+};
 
-// console.log(getFriendsByStatus(friends));
+console.log(getFriendsByStatus(friends));
 

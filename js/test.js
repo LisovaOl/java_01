@@ -95,12 +95,51 @@ console.log((nameMy));
  // let userName = prompt('What is your name?', 'John');
 // alert(`Your name is ${userName}`)
 
-let apples = "2";
-let oranges = "3";
+// let apples = "2";
+// let oranges = "3";
 
-console.log(apples + oranges); // "23", так как бинарный плюс объединяет строки
+// console.log(apples + oranges); // "23", так как бинарный плюс объединяет строки
 
-console.log( Number(apples) + Number(oranges) ); // 5//преобразование к числу.
-console.log(+apples + +oranges); //преобразование к числу короткий метод
+// console.log( Number(apples) + Number(oranges) ); // 5//преобразование к числу.
+// console.log(+apples + +oranges); //преобразование к числу короткий метод
+
+
+
+const apartment = {
+  descr: 'Spacious apartment in the city center',
+  rating: 4,
+  price: 2153,
+};
+const values = [];
+
+const keys = Object.keys(apartment);
+console.log(keys)
+
+
+for (const value of apartment) {
+    console.log(value);
+    console.log(apartment[value]);
+}
+
+
+
+// const keys = [];
+// const values = [];
+// // Change code below this line
+// for (const key in apartment) {
+//     console.log(key);
+//     keys.push(key);
+//     values.push(apartment[key]);
+
+// };
+// console.log(keys);
+//     console.log(values)
+
+// // for (const value in apartment) {
+// //     console.log(value);
+// //         values.push(value);
+
+// // // };
+// //     console.log(values);
 
 
