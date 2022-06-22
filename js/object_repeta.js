@@ -227,7 +227,7 @@ const getAllNames = function (allFriends) {
   return names; // возвращаем сформированый массив
 };
 
-console.log(getAllNames(friends));
+// console.log(getAllNames(friends));
 
 // /*
 //  * Получаем имена только друзей которые онлайн
@@ -267,7 +267,7 @@ const getOfflineFriends = function (allFriends) {
   return offlineFriends;
 };
 
-console.log(getOfflineFriends(friends));
+// console.log(getOfflineFriends(friends));
 
 // // создать 2 массива онлайн и офлайн?
 // // если тру - в первый, если нет - во второй
@@ -293,5 +293,72 @@ const getFriendsByStatus = function (allFriends) {
   return friendsByStatus;
 };
 
-console.log(getFriendsByStatus(friends));
+// console.log(getFriendsByStatus(friends));
+
+
+const x = {
+    a: 1,
+    b: 23,
+    c: 32,
+    d: 43,
+    
+}
+//подсчет количества ключей
+
+// console.log(Object.keys(x).length);
+
+
+////////////////////////////////////////////////////////////////
+/////////////// cart - Корзина товаров  //////////////////////////
+//////////////////////////////////////////////////////////////
+/*
+ * Работем с коллекцией товаров в корзине:
+ * - getItems()
+ * - add(product)
+ * - remove(productName)
+ * - clear()
+ * - countTotalPrice()
+ * - increaseQuantity(productName)
+ * - decreaseQuantity(productName)
+ *
+ * { name: '🍎', price: 50 }
+ * { name: '🍇', price: 70 }
+ * { name: '🍋', price: 60 }
+ * { name: '🍓', price: 110 }
+ */
+
+const cart = {
+  items: [],
+  getItems() {},
+  add(product) {},
+  remove(productName) {},
+  clear() {},
+  countTotalPrice() {},
+  increaseQuantity(productName) {},
+  decreaseQuantity(productName) {},
+};
+
+// console.table(cart.getItems());
+
+cart.add({ name: '🍎', price: 50 });
+cart.add({ name: '🍋', price: 60 });
+cart.add({ name: '🍋', price: 60 });
+cart.add({ name: '🍓', price: 110 });
+
+// console.table(cart.getItems());
+
+cart.remove('🍎');
+// console.table(cart.getItems());
+
+// cart.clear();
+// console.table(cart.getItems());
+
+// cart.increaseQuantity('🍎');
+// console.table(cart.getItems());
+
+// cart.decreaseQuantity('🍋');
+// cart.decreaseQuantity('🍋');
+// console.table(cart.getItems());
+
+// console.log('Total: ', cart.countTotalPrice());
 
