@@ -88,11 +88,11 @@
 // Выведите на экран значение admin, используя функцию alert (должна показать «Джон»).
 
 let nameMy = '354';
-console.log((nameMy));
+// console.log((nameMy));
 // console.log(name);
- //-------------------5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//-------------------5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
- // let userName = prompt('What is your name?', 'John');
+// let userName = prompt('What is your name?', 'John');
 // alert(`Your name is ${userName}`)
 
 // let apples = "2";
@@ -103,8 +103,6 @@ console.log((nameMy));
 // console.log( Number(apples) + Number(oranges) ); // 5//преобразование к числу.
 // console.log(+apples + +oranges); //преобразование к числу короткий метод
 
-
-
 const apartment = {
   descr: 'Spacious apartment in the city center',
   rating: 4,
@@ -113,15 +111,12 @@ const apartment = {
 const values = [];
 
 const keys = Object.keys(apartment);
-console.log(keys)
+// console.log(keys)
 
-
-for (const value of apartment) {
-    console.log(value);
-    console.log(apartment[value]);
-}
-
-
+// for (const value of apartment) {
+//     console.log(value);
+//     console.log(apartment[value]);
+// }
 
 // const keys = [];
 // const values = [];
@@ -141,5 +136,79 @@ for (const value of apartment) {
 
 // // // };
 // //     console.log(values);
+////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+// Деструктуризация
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+function calcValue(a, b) {
+  return [a + b, a - b, a * b, a / b];
+}
 
+const [sum, , mult, ...other] = calcValue(42, 10);
+// const sum = result[0];
+// const sub = result[1];
+// const [sum, sub] = result;
+console.log(sum, mult, other);
 
+// Objects
+const person = {
+  name: 'Max',
+  age: 20,
+  address: {
+    country: 'Ukraine',
+    city: 'Bila Tserkva',
+  },
+};
+// const {
+//   name: firstName = 'not',
+//   age,
+//   car = 'Not Found',
+//   address: { city: homeTown, country },
+// } = person;
+
+// const { name, ...info } = person //создается объект info
+// console.log(name, info);
+// console.log(firstName, age, car, homeTown, country);
+
+function logPerson({name: first = '111', age}) {
+  console.log(first + ' ' + age)
+}
+
+logPerson(person)
+
+// Ми отримали прогноз погоди на два дні, з мінімальними і максимальними температурами, а також необов'язковими іконками. 
+// Заміни оголошення всіх змінних однією операцією деструктуризації властивостей об'єкта forecast. 
+// Задай значення за замовчуванням для іконок, змінних todayIcon і tomorrowIcon - рядок "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+const forecast = {
+  today: {
+    low: 28,
+    high: 32,
+    icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg'
+  },
+  tomorrow: {
+    low: 27,
+    high: 31,
+  },
+};
+// Change code below this line
+const {
+  today: {
+    high: highToday,
+    low: lowToday,
+    icon: todayIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+  },
+
+  tomorrow: {
+    low: lowTomorrow,
+    high: highTomorrow,
+    icon: tomorrowIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+  },
+} = forecast;
+// const highToday = high;
+// const lowToday = low;
+// const todayIcon = icon;
+console.log(highToday, lowToday, todayIcon);
+
+// const highTomorrow = high;
+// const lowTomorrow = low;
+// const tomorrowIcon = icon;
+console.log(highTomorrow, lowTomorrow, tomorrowIcon);
