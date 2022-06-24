@@ -74,10 +74,10 @@ const c = {
   y: 20, 
 };
 /// ВАЖНО!!!! одинаковыйе свойства перезаписываются
-console.log(c);
+// console.log(c);
 
 ////////////////////////////////////////////////////////////////
-/////////
+//////////////////////////////////////////////////////
 
 const defaultSettings = {
   theme: 'light',
@@ -95,4 +95,178 @@ const finalSettings = {
   ...userSettings,
 };
 
-console.log(finalSettings);
+// console.log(finalSettings);
+
+
+////////////////////////////////////////////////////////////////
+/////////  Деструктуризация /////////////////////////////
+/////////////////////////////////////////////////////
+// *
+//  * Деструктуризация объекта
+//  * - Значения по умолчанию
+//  * - Имя переменной отличное от имени свойства
+//  */
+
+// const playlist = {
+//   name: 'Мой супер плейлист',
+//   rating: 5,
+//   tracks: ['трек-1', 'трек-2', 'трек-3'],
+//   trackCount: 3,
+// };
+
+// const {
+//   rating,
+//   tracks,
+//   name,
+//   trackCount: numberOfTracks = 0, //переменная + значение по умолчнию или замена
+//   author = 'user', // добавит новое значение. Если его нету. или заменит значение
+// } = playlist;
+
+// console.log(numberOfTracks);
+
+/*/////////////////////////////////////////////////
+ * Глубокая деструктуризация
+ */////////////////////////////////////////////////
+
+// const profile = {
+//   name: 'Jacques Gluke',
+//   tag: 'jgluke',
+//   location: 'Ocho Rios, Jamaica',
+//   avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+//   stats: {
+//     followers: 5603,
+//     views: 4827,
+//     likes: 1308,
+//   },
+// };
+
+// const {
+//   avatar,
+//   name,
+//   tag,
+//   location,
+//   stats: { followers, views, likes },
+// } = profile;
+
+// console.log(name, tag, location, avatar, followers, views, likes);
+
+/*///////////////////////////////////////////
+ * Деструктуризация массивов
+ *///////////////////////////////////////////
+
+const rgb = [255, 100, 80];
+
+const [red, green, blue] = rgb;
+
+// console.log(red, green, blue);
+/////////////////////////////////////////////////////
+const authors = {
+  kiwi: 4,
+  poly: 7,
+  ajax: 9,
+  mango: 6,
+};
+// - entries - создает масив массивов. если надо вывести не только значение но и имя ключа
+const entries = Object.entries(authors);
+
+// console.log(entries); 
+
+// Тогда на каждой итерации цикла получаем и ключ и значение
+// for (const entry of entries) {
+//   const name = entry[0]; // возьми 'нулевой` помести в переменную name
+//   const rating = entry[1]; // возьми `первый` помести в переменную rating
+
+
+
+//   console.log(name, rating);
+// }
+////////   Destructuration 1 - создание одной переменной //////// 
+
+for (const entry of entries) {
+
+  const [name, rating] = entry;
+  
+  // console.log(name, rating);
+}
+
+////////   Destructuration 1 - в цикле  //////// 
+
+for (const [name, rating] of entries) { 
+
+  // console.log(name, rating);
+}
+
+
+
+
+
+
+
+
+/*//////////////////////////////////////////
+ * ////////////      Операция rest (сбор)   ////////////////////////
+ *///////////////////////////////////////////
+
+// const profile = {
+//   name: 'Jacques Gluke',
+//   tag: 'jgluke',
+//   location: 'Ocho Rios, Jamaica',
+//   avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+//   stats: {
+//     followers: 5603,
+//     views: 4827,
+//     likes: 1308,
+//   },
+// };
+// // name, tag, location  а все остальное (avatar, stats) в другой объект
+// const { name, tag, location, ...restProps } = profile;
+
+// console.log(name, tag, location);
+// console.log(restProps);
+// console.log(profile);
+
+/*/////////////////////////////////////////////////////
+ * Паттерн «Обьект настроек» когда 3 и больше параметров объекта .....
+ * - деструктуризация параметра-обьекта в подписи функции
+ * - rest при деструктуризации в подписи
+ */
+// 1:24 module 3//6 lesson
+
+// const showProfileInfo = function (userProfile) {
+//   const { name, tag, location, ...restProps } = userProfile;
+
+//   // console.log(name, tag, location, avatar, followers, views, likes);
+//   console.log(restProps);
+// };
+
+// const profile = {
+//   name: 'Jacques Gluke',
+//   tag: 'jgluke',
+//   location: 'Ocho Rios, Jamaica',
+//   avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+//   stats: {
+//     followers: 5603,
+//     views: 4827,
+//     likes: 1308,
+//   },
+// };
+
+// showProfileInfo(profile);
+
+
+
+
+
+// Change code below this line
+function findMatches(args) {
+  const matches = []; // Don't change this line
+  let newArgs = [...args];
+  for (const arg of args) {
+    if (arg === arg) {
+      matches.push(arg);
+    }
+  }
+  // Change code above this line
+  return matches;
+}
+console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
