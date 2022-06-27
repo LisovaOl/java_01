@@ -294,7 +294,7 @@ number равно 3, то сумма это 1 + 2 + 3, то есть 6. • Об
 параметр order - массив чисел, и рассчитывает общую сумму его элементов. Общая сумма элементов
 должна сохраняться в переменной total, которая возвращается, как результат работы функции. •
 Объявлена функция calculateTotalPrice(order) • Вызов функции calculateTotalPrice([12, 85, 37, 4])
-возвращает 138 • Вызов функции calculateTotalPrice([164, 48, 291]) возвращает 503 • Вызов функции
+возвращает 138 • В ызов функции calculateTotalPrice([164, 48, 291]) возвращает 503 • Вызов функции
 calculateTotalPrice([412, 371, 94, 63, 176]) возвращает 1116 • Вызов функции calculateTotalPrice()
 со случайным массивом возвращает правильное значение
 <h3>Consol</h3>
@@ -392,9 +392,19 @@ getCommonElements() со случайными двумя массивами во
 использовались методы includes и push
 <h3>Consol</h3>
 
-• function getCommonElements(array1, array2) { • // Change code below this line • let result = []; •
-for (i = 0; i < array1.length; i += 1){ • if (array2.includes(array1[i])) { •
-result.push(array1[i]); • } • } • return result • • // Change code above this line • }
+• function getCommonElements(array1, array2) { 
+  • // Change code below this line 
+  • let result = []; 
+  •
+for (i = 0; i < array1.length; i += 1){ 
+  • if (array2.includes(array1[i])) { 
+    •
+result.push(array1[i]); 
+• } 
+• } 
+• return result 
+• •
+ // Change code above this line • }
 
 <h2>26/32</h2>
 Цикл for...of Выполни рефакторинг кода функции calculateTotalPrice(order) заменив цикл for на

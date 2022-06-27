@@ -4,11 +4,11 @@
  */
 
 // const numbers = [1, 2, 3].concat([4, 5, 6], [7, 8, 9]);
-const numbers = [...[1, 2, 3], ...[4, 5, 6], ...[7, 8, 9]];
+// const numbers = [...[1, 2, 3], ...[4, 5, 6], ...[7, 8, 9]];
 
  // возьми массив и распыли его
 
-// const numbers = [1000, ...[2, 2, 2], 5000, ...[4, 5, 6], 7000, ...[7, 8, 9], 9000];
+const numbers = [1000, ...[2, 2, 2], 5000, ...[4, 5, 6], 7000, ...[7, 8, 9], 9000];
 
 
 // console.log(numbers);
@@ -258,15 +258,65 @@ for (const [name, rating] of entries) {
 
 
 // Change code below this line
-function findMatches(args) {
+// function findMatches([args]) {
+//   const matches = []; // Don't change this line
+//   const [first, ...rest] = args;
+// for (i = 0; i < first.length; i += 1){ 
+//   if (rest.includes(first[i])) { 
+    
+// matches.push(first[i]); 
+// } 
+// } 
+//   // Change code above this line
+//   return matches;
+// }
+
+
+// console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
+
+const fruits = [['apple', 'orange'], 'banana', 'pineapple'];
+
+// ... – rest-оператор
+const [first, ...rest] = fruits; 
+console.log(first); // 'apple'
+console.log(rest); // ['orange', 'banana', 'pineapple']
+
+// Change code below this lin 33 Task
+function findMatches(first, ...rest) {
   const matches = []; // Don't change this line
-  let newArgs = [...args];
-  for (const arg of args) {
-    if (arg === arg) {
-      matches.push(arg);
-    }
-  }
+for (i = 0; i < first.length; i += 1){ 
+  if (rest.includes(first[i])) { 
+  
+matches.push(first[i]); 
+} 
+} 
+
   // Change code above this line
   return matches;
 }
-console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
+
+
+let arr = [1, 2, 2, 3, 4, 5, 6, 1, 7, 4, 9, 9, 10, 3];
+
+let uniq = [];
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < i; j++)
+    if (arr[j] === arr[i]) {
+      uniq.push(arr[i]);
+    }
+}
+
+console.log(uniq);
+
+
+
+
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  // Change code below this line
+  getPotions() {
+    console.log(potions);
+  },
+  // Change code above this line
+}
+

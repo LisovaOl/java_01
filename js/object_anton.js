@@ -49,11 +49,20 @@ const salaries = {
   Ann: 160,
   Pete: 130,
 };
+// for..of перебирає значення МАССИВА
+// for..in перебирає ключі ОБʼЄКТА. Через ключі можна вийняти значення.
 let sum = 0;
-// const values = Object.values(salaries);
-for (const value of Object.values(salaries)) {
-  sum += value;
+for (const name in salaries) {
+  console.log(name);
+  sum += salaries[name];
 }
+  console.log(salaries[name]);
+
+// let sum = 0;
+// // const values = Object.values(salaries);
+// for (const value of Object.values(salaries)) {
+//   sum += value;
+// }
 // console.log(sum);
 
 /////////////////////////////////////////////////////////////
@@ -100,7 +109,13 @@ const Transaction = {
 // /*
 //  * Каждая транзакция это объект со свойствами: id, type и amount
 //  */
+const transactionsExample = {
+  id: 1,
+  type: Transaction.DEPOSIT,
+  amount: 100,
+  
 
+}
 const account = {
   // Текущий баланс счета
   balance: 0,
@@ -112,7 +127,15 @@ const account = {
 //    * Метод создает и возвращает объект транзакции.
 //    * Принимает сумму и тип транзакции.
 //    */
-  createTransaction(amount, type) {},
+  createTransaction(amount, type) {
+    const transactionObject = {
+      id: this.transactions.length + 1,
+      
+      type,
+      amount,
+    }
+    return transactionObject;
+  },
 
 //   /*
 //    * Метод отвечающий за добавление суммы к балансу.
@@ -120,7 +143,11 @@ const account = {
 //    * Вызывает createTransaction для создания объекта транзакции
 //    * после чего добавляет его в историю транзакций
 //    */
-  deposit(amount) {},
+  deposit(amount) {
+    this.balance += amount;
+    const transactionObject = this.createTransaction(amount, Transaction.DEPOSIT);
+    this.transactions.push(transactionObject);
+  },
 
 //   /*
 //    * Метод отвечающий за снятие суммы с баланса.
@@ -131,22 +158,102 @@ const account = {
 //    * Если amount больше чем текущий баланс, выводи сообщение
 //    * о том, что снятие такой суммы не возможно, недостаточно средств.
 //    */
-  withdraw(amount) {},
+  withdraw(amount) {
+    if (amount > this.balance) {
+      console.log("Недостатньо коштів для зняття");
+      return;
+    }
+    this.balance -= amount;
+      const transactionObject = this.createTransaction(amount, Transaction.WITHDRAW);
+    this.transactions.push(transactionObject);
+
+  },
 
 //   /*
 //    * Метод возвращает текущий баланс
 //    */
-  getBalance() {},
+  getBalance() {
+    return this.balance;
+  },
 
 //   /*
 //    * Метод ищет и возвращает объект транзации по id
 //    */
-  getTransactionDetails(id) {},
+  getTransactionDetails(id) {
+    let transaction;
+    for (const itemTransaction of this.transactions) {
+      if (itemTransaction.id === id) {
+        transaction = itemTransaction;
+        break;
+      }
+    }
+    return transaction;
+  },
 
 //   /*
 //    * Метод возвращает количество средств
 //    * определенного типа транзакции из всей истории транзакций
 //    */
-  getTransactionTotal(type) {},
+  getTransactionTotal(type) {
+    let sum = 0;
+        for (const itemTransaction of this.transactions) {
+          if (itemTransaction.type === type) {
+            sum += itemTransaction.amount;
+            
+          }
+        }
+        return sum;
+
+  },
 
 };
+
+account.withdraw(100);
+console.log(account.balance);
+
+account.deposit(1000);
+account.deposit(1000);
+console.log(account.balance);
+
+account.withdraw(500);
+account.withdraw(300);
+account.withdraw(200);
+
+console.log(account.balance);
+
+console.log(account.transactions);
+
+console.log(account.getTransactionTotal(Transaction.DEPOSIT));
+console.log(account.getTransactionTotal(Transaction.WITHDRAW));
+
+
+// console.log(account.getTransactionDetails(3));
+// console.log(account);
+// console.log('У вас на рахунку:', account.balance);
+// console.log(`У вас на рахунку: ${account.balance}`);
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+// Массив обʼєктвів ...........................
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+const arrOfObject = [
+  { a: 1, b: 2, c: 3 },
+  { a: 11, b: 12, c: 13 },
+  { a: 21, b: 22, c: 23 },
+  { a: 31, b: 32, c: 33 },
+];
+console.table(arrOfObject); // початкові значення 
+
+// зміна окремого елемента, якщо відомо його індекс.
+arrOfObject[0].a = 'hello';
+
+// зміна елемента всіх елементів ʼаʼ 
+for (const item of arrOfObject) {
+  item.a += 10;
+  item.b += 100;
+  item.c += 1000;
+  
+};
+console.table(arrOfObject) 
+
+console.log(arrOfObject);
