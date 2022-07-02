@@ -14,20 +14,20 @@ const loginToFind = 'poly1scute';
 
         // +++++++++= Вариант 1 +++++++++++++
 
-// let message = `Пользователь ${loginToFind} не найден.`;
+let message = `Пользователь ${loginToFind} не найден.`;
 
-// for (let i = 0; i < logins.length; i += 1) {
-//   const login = logins[i];
+for (let i = 0; i < logins.length; i += 1) {
+  const login = logins[i];
 
-//   console.log('Login: ', login);
-//   console.log(`${login} === ${loginToFind}: `, login === loginToFind);
+  console.log('Login: ', login);
+  console.log(`${login} === ${loginToFind}: `, login === loginToFind);
 
-//   if (login === loginToFind) {
-//     console.log('Ура, равны!!!');
-//     message = `Пользователь ${loginToFind} найден.`;
-//     break;
-//   }
-// }
+  if (login === loginToFind) {
+    console.log('Ура, равны!!!');
+    message = `Пользователь ${loginToFind} найден.`;
+    break;
+  }
+}
 
 // console.log(message);
 
