@@ -568,9 +568,10 @@ const pizzaPalace = {
   pizzas: ['Ultracheese', 'Smoked', 'Four meats'],
     order(pizzaName, makePizza, onOrderError) {
         if (this.pizzas.includes(pizzaName)) {
-            return makePizza();
-        }
-        return onOrderError();
+            return makePizza(pizzaName);
+        } 
+        const error = `There is no pizza with a name ${pizzaName} in the assortment.`
+        return onOrderError(error);
     }
     
     };
@@ -593,4 +594,68 @@ console.log(pizzaPalace.order('Big Mike', makePizza, onOrderError));
 console.log(pizzaPalace.order('Vienna', makePizza, onOrderError));
 
 
+function calculateTotalPrice(orderedItems) {
+  let totalPrice = 0;
+  // Change code below this line
 
+   orderedItems.forEach(function (orderedItems) {
+       totalPrice += orderedItems;
+   }); 
+//   for (let i = 0; i < orderedItems.length; i += 1) {
+//     totalPrice += orderedItems[i];
+//   }
+
+  // Change code above this line
+  return totalPrice;
+}
+
+console.log(calculateTotalPrice([12, 85, 37, 4]));
+console.log(calculateTotalPrice([164, 48, 291]));
+
+
+function filterArray(numbers, value) {
+    const filteredNumbers = [];
+    // Change code below this line
+
+    numbers.forEach(function (elem) {
+        console.log(elem);
+        if (elem > value) {
+            filteredNumbers.push(elem);
+        }
+    });
+//   for (let i = 0; i < numbers.length; i += 1) {
+//     if (numbers[i] > value) {
+//       filteredNumbers.push(numbers[i]);
+//     }
+//   }
+
+  // Change code above this line
+  return filteredNumbers;
+}
+console.log(filterArray([1, 2, 3, 4, 5], 3));
+
+
+
+
+
+
+function getCommonElements(firstArray, secondArray) {
+  const commonElements = [];
+  // Change code below this line
+    firstArray.forEach(function (elem) {
+      console.log(elem);
+          if (secondArray.includes(elem)) {
+            commonElements.push(elem);
+          }
+    })
+//   for (let i = 0; i < firstArray.length; i += 1) {
+//     if (secondArray.includes(firstArray[i])) {
+//       commonElements.push(firstArray[i]);
+//     }
+//   }
+
+  return commonElements;
+  // Change code above this line
+}
+
+console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
