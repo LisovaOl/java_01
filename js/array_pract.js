@@ -283,6 +283,7 @@ let users2 = [
 let someUsers2 = users2.filter(item => item.id < 3);
 
 console.log(someUsers2.length); // 2
+
 console.log(someUsers2); // названия елементов
 
 let users3 = [
@@ -386,3 +387,215 @@ console.log(scores2); // [61, 19, 74, 35, 92, 56]
 console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
 
 // --- свой порядок сортировки есть в конспекте
+
+// -- reverse
+
+let ar = [1, 2, 3, 4, 5];
+ar.reverse();
+
+console.log( ar ); // 5,4,3,2,1
+// Он также возвращает массив arr с изменённым порядком элементов.
+
+const scores3 = [1, 3, 5, 7, 9, 11];
+
+const reverseAr = [...scores3].reverse();
+console.log(reverseAr) // [ 11, 9, 7, 5, 3, 1 ]
+console.log(scores3) // [ 1, 3, 5, 7, 9, 11 ]
+
+// Методи split() і join() ===============
+
+// Метод split(delimiter) перетворює рядок в масив, «розбиваючи» його роздільником delimiter. Якщо роздільник - це порожній рядок, то створиться масив окремих символів. Роздільником може бути один або декілька символів.
+
+const name = "Mango";
+console.log(name.split("")); // ["M", "a", "n", "g", "o"]
+
+// -----------------------------------------
+
+const message = "JavaScript - це цікаво";
+console.log(message.split(" ")); // ["JavaScript", "-", "це", "цікаво"]
+
+// --------------------------------------
+const words = ["JavaScript", "це", "цікаво"];
+console.log(words.join("")); // "JavaScriptцецікаво"
+console.log(words.join(" ")); // "JavaScript це цікаво"
+console.log(words.join("-")); // "JavaScript-це-цікаво"
+
+// ------------------------------------------
+
+let namesOf= 'Вася, Петя, Маша';
+
+let arrOf = namesOf.split(', ');
+
+for (let name of arrOf) {
+  console.log(`Сообщение получат: ${name}.`); // Сообщение получат: Вася (и другие имена)
+}
+
+// -----------------------------------------------
+
+//Метод масивів join(delimiter) об'єднує елементи масиву у рядок. У рядку елементи будуть розділені символом або групою символів, зазначених в delimiter. Тобто ця операція протилежна методу рядків split(delimiter).
+
+const wordsOf = ["JavaScript", "це", "цікаво"];
+console.log(wordsOf.join("")); // "JavaScriptцецікаво"
+console.log(wordsOf.join(" ")); // "JavaScript це цікаво"
+console.log(wordsOf.join("-")); // "JavaScript-це-цікаво"//
+
+// -------------------------------------------
+let arrOf1 = ['Вася', 'Петя', 'Маша'];
+
+let str = arrOf1.join(';'); // объединить массив в строку через ;
+
+console.log(str); // Вася;Петя;Маша
+
+
+// ---- reduce/reduceRight ------------
+// Методы arr.reduce и arr.reduceRight похожи на методы выше, но они немного сложнее. Они используются для вычисления какого-нибудь единого значения на основе всего массива.
+
+// Синтаксис:
+
+// let value = arr.reduce(function(previousValue, item, index, array) {
+//   // ...
+// }, [initial]);
+
+// Функция применяется по очереди ко всем элементам массива и «переносит» свой результат на следующий вызов.
+
+// Аргументы:
+
+//      - previousValue – результат предыдущего вызова этой функции, равен initial при первом вызове (если передан initial),
+//     - item – очередной элемент массива,
+//     - index – его индекс,
+//     - array – сам массив.
+
+// При вызове функции результат её вызова на предыдущем элементе массива передаётся как первый аргумент.
+
+// ---------------------------------
+// Тут мы получим сумму всех элементов массива всего одной строкой:
+
+let arr01 = [1, 2, 3, 4, 5];
+
+let result01 = arr01.reduce((sum, current) => sum + current, 0);
+
+console.log(result01); // 15
+
+// -----------------------------------------------------
+// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
+const myArrray = [0, 1, 2, 3, 4].reduce(function (previousValue, currentValue, index, array) {
+  return previousValue + currentValue;
+}, 0); // початкове значення 0
+console.log(myArrray)
+
+// -------------------------------------------------------
+
+var total = [0, 1, 2, 3].reduce(function(a, b) {
+  return a + b;
+});
+console.log(total) // == 6
+
+// -----------------------------------------
+
+const myArrray2 = [0, 1, 2, 3, 4].reduce(function (previousValue, currentValue, index, array) {
+  return previousValue + currentValue;
+}, 10); // початкове значення 10
+console.log(myArrray2);
+
+
+// -------------------------------------------
+
+// Разворачивание массива массивов
+
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
+  return a.concat(b);
+});
+// flattened равен [0, 1, 2, 3, 4, 5]
+console.log(flattened)
+
+// -------------------------------------------
+
+// Суммирование значений в массиве объектов
+var initialValue = 0;
+var sum1 = [{x: 1}, {x:2}, {x:3}].reduce(function (accumulator, currentValue) {
+    return accumulator + currentValue.x;
+}, initialValue)
+// sum == 6
+console.log(sum1)
+
+// --------------------------------------------
+// Тоже самое, но со стрелочной функцией: 
+
+var initialValue = 10;
+var sum2 = [{x: 1}, {x:2}, {x:3}].reduce(
+    (accumulator, currentValue) => accumulator + currentValue.x,
+    initialValue
+);
+// sum == 6
+console.log(sum2);
+
+//
+// Итого
+
+// Шпаргалка по методам массива:
+
+//     Для добавления/удаления элементов:
+//         push (...items) – добавляет элементы в конец,
+//         pop() – извлекает элемент с конца,
+//         shift() – извлекает элемент с начала,
+//         unshift(...items) – добавляет элементы в начало.
+//         splice(pos, deleteCount, ...items) – начиная с индекса pos, удаляет deleteCount элементов и вставляет items.
+//         slice(start, end) – создаёт новый массив, копируя в него элементы с позиции start до end (не включая end).
+//         concat(...items) – возвращает новый массив: копирует все члены текущего массива и добавляет к нему items. Если какой-то из items является массивом, тогда берутся его элементы.
+
+//     Для поиска среди элементов:
+//         indexOf/lastIndexOf(item, pos) – ищет item, начиная с позиции pos, и возвращает его индекс или -1, если ничего не найдено.
+//         includes(value) – возвращает true, если в массиве имеется элемент value, в противном случае false.
+//         find/filter(func) – фильтрует элементы через функцию и отдаёт первое/все значения, при прохождении которых через функцию возвращается true.
+//         findIndex похож на find, но возвращает индекс вместо значения.
+
+//     Для перебора элементов:
+//         forEach(func) – вызывает func для каждого элемента. Ничего не возвращает.
+
+//     Для преобразования массива:
+//         map(func) – создаёт новый массив из результатов вызова func для каждого элемента.
+//         sort(func) – сортирует массив «на месте», а потом возвращает его.
+//         reverse() – «на месте» меняет порядок следования элементов на противоположный и возвращает изменённый массив.
+//         split/join – преобразует строку в массив и обратно.
+//         reduce(func, initial) – вычисляет одно значение на основе всего массива, вызывая func для каждого элемента и передавая промежуточный результат между вызовами.
+
+//     Дополнительно:
+//         Array.isArray(arr) проверяет, является ли arr массивом.
+
+// Обратите внимание, что методы sort, reverse и splice изменяют исходный массив.
+
+// Изученных нами методов достаточно в 99% случаев, но существуют и другие.
+
+//     arr.some(fn)/arr.every(fn) проверяет массив.
+
+//     Функция fn вызывается для каждого элемента массива аналогично map. Если какие-либо/все результаты вызовов являются true, то метод возвращает true, иначе false.
+
+//     arr.fill(value, start, end) – заполняет массив повторяющимися value, начиная с индекса start до end.
+
+//     arr.copyWithin(target, start, end) – копирует свои элементы, начиная со start и заканчивая end, в собственную позицию target (перезаписывает существующие).
+
+// https://learn.javascript.ru/array-methods
+
+
+// TasK1 
+let arrd = [5, 2, 1, -10, 8];
+const filterRange = function (arr) {
+    return arr.sort((a, b) => b - a); // по убыванию
+} 
+
+console.log(filterRange(arrd));
+
+const arrw = ['HTML', 'JavaScript', 'CSS'];
+console.log(arrw);
+
+const copySorted = [...arrw].sort();
+// function copySorted(arr) {
+//   return arr.slice().sort();
+// }
+
+console.log(arrw);
+
+console.log(copySorted);
+
+
