@@ -598,4 +598,64 @@ console.log(arrw);
 
 console.log(copySorted);
 
+let allo = [1, 2, 3, 4, 5];
+// allo.push(4, 5, 6);
+// allo.unshift(4, 5, 6);
+console.log(allo)
+// console.log(allo[allo.length - 1]);
+// console.log(allo.slice(0, 3));
+// const allo1 = allo.slice([allo.length - 2]);
+// console.log(allo1)
+// allo.splice(1, 2);
+// console.log(allo) // [1, 4, 5]
+
+// allo.splice(3, 0, 'a', 'b', 'c')
+// console.log(allo) //[1, 2, 3, 'a', 'b', 'c', 4, 5]
+
+allo.splice(1, 0, 'a', 'b',)
+// allo.splice(-1, 0, 'c');
+// allo.push('e')
+console.log(allo) // [(1, 'a', 'b', 2, 3, 4, 'c', 5, 'e')];
+
+console.log(allo.indexOf('a'))
+const allo4 = allo.indexOf(4);
+console.log(allo4)
+
+console.log(allo.includes('c'))
+
+let stri = 'london';
+
+  //  преобразуем первую букву этой строки в верхний регистр: 
+
+// let result = stri.slice(0, 1).toUpperCase() + stri.slice(1);
+// console.log(result); // выведет 'London'
+
+  // Преобразуйте последнюю букву строки в верхний регистр. 
+// let result = stri.slice(0,-1) + stri[stri.length - 1].toUpperCase()  //+ stri.slice(1);
+// console.log(result); // выведет 'londoN'
+
+  // Преобразуйте первые 2 буквы строки в верхний регистр. 
+// let result = stri.slice(0, 2).toUpperCase() + stri.slice(1);
+// console.log(result); // выведет 'LOndon'
+
+// let stri1 = 'London';
+// let result = stri1.slice(0, 1).toLowerCase() + stri1.slice(1);
+// console.log(result) // london
+
+let words1 = 'word1 word2 word3';
+let modWords = words1.split(' ');
+for (let i = 0; i < modWords.length; i++) {
+  modWords[i] = modWords[i].slice(0, 1).toUpperCase() + modWords[i].slice(1);
+}
+
+let newWords = modWords.join(' ');
+console.log(newWords); // выведет 'Word1 Word2 Word3'
+
+let test = 'var_test_text';
+let testMod = test.split('_');
+for (let i = 0; i < testMod.length; i++){
+  testMod[i] = testMod[i].slice(0, 1).toUpperCase() + testMod[i].slice(1);
+}
+let testNew = testMod.join('')
+console.log(testNew);
 

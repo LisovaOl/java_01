@@ -214,11 +214,159 @@ console.log(reverseWords('double  spaced  words')) //, 'elbuod  decaps  sdrow');
 
 // ------------------------------------------------------------
 function disemvowel(str) {
-    const vowels = ['a', 'e', 'o' ]
-    if (str.includes(vowels[i])) {
-        return str -= vowels;
-    }
+    let newStr = str.replace(/[aeiouy]/gi, '');
+    return newStr;
 }
 console.log(disemvowel("This website is for losers LOL!")) //, "Ths wbst s fr lsrs LL!")
 console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read")) //, "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
 console.log(disemvowel("What are you, a communist?")) //, "Wht r y,  cmmnst?")
+
+// ----------------------------------------------------------
+
+function boolToWord(bool) {
+    // return bool === true ? 'Yes' : 'No';
+    return bool ? 'Yes' : 'No';
+}
+console.log(boolToWord(true)) // 'Yes');
+console.log(boolToWord(false)) //, 'No');
+
+//----------------------------------------------------------
+
+
+
+function sumTwoSmallestNumbers(numbers) {
+    // var positiveArray = numbers.filter(num => num >= 0);
+    
+//   var newArray = numbers.sort(function (a, b) {
+//     return a - b;
+//   });
+
+//   var total = 0;
+//   for (var i in newArray) {
+//     total = newArray[0] + newArray[1];
+//   }
+//   return total;
+    numbers.sort((a, b) => a - b);
+    return numbers[0] + numbers[1];
+}
+console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22])) //, 13 , "Sum should be 13");
+console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43])) //, 6 , "Sum should be 6");
+console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7])) //, 10 , "Sum should be 10");
+console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1])) //, 24 , "Sum should be 24");
+console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4])) //, 16 , "Sum should be 16");
+
+// -------------------------------------------------------
+
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return Math.min(...args);
+  }
+}
+// console.log(sif.findSmallestInt([78,56,232,12,8])) //,8,'Should return the smallest int 8');
+// console.log(sif.findSmallestInt([78,56,232,12,18])) //,12,'Should return the smallest int 12');
+// console.log(sif.findSmallestInt([78,56,232,412,228])) //,56,'Should return the smallest int 56');
+// console.log(sif.findSmallestInt([78,56,232,12,0])) //,0,'Should return the smallest int 0');
+// console.log(sif.findSmallestInt([1,56,232,12,8])) //,1,'Should return the smallest int 1');
+
+// -----------------------------------
+
+function filter_list(l) {
+return l.filter(str => typeof str != 'string');  // Return a new array with the strings filtered out
+}
+console.log(filter_list([1,2,'a','b'])) //,[1,2], 'For input [1,2,"a","b"]');
+console.log(filter_list([1,'a','b',0,15])) //,[1,0,15], 'For input [1,"a","b",0,15]');
+console.log(filter_list([1,2,'aasf','1','123',123])) //,[1,2,123], 'For input [1,2,"aasf","1","123",123]');
+
+//------------------------------------------
+const stringToNumber = function (str) {
+  // put your code here
+  return Number(str);
+};
+console.log(stringToNumber('1234')) //, 1234);
+console.log(stringToNumber('605')) //, 605);
+console.log(stringToNumber('1405')) //, 1405);
+console.log(stringToNumber('-7')) //, -7);
+
+// -----------------------------------------
+function squareDigits(num) {
+  return +num
+    .toString()
+    .split('')
+    .map(val => val * val)
+    .join('');
+}
+console.log(squareDigits(4444)) // 16161616;
+console.log(squareDigits(3212)) //, 9414))
+
+// -----------------------------------------
+function validatePIN(pin) {
+  if (pin.length !== 4 && pin.length !== 6) {
+    return false;
+  }
+    for (let i = 0; i < pin.length; i++) {
+      if (pin[i] > '9' || pin[i] < '0') {
+        return false;
+      }
+    }
+    return true;
+    
+}
+console.log(validatePIN('1')) //, false, "Wrong output for '1'");
+console.log(validatePIN('12')) //, false, "Wrong output for '12'");
+console.log(validatePIN('12s3')) //, false, "Wrong output for '123'");
+console.log(validatePIN('12345')) //, false, "Wrong output for '12345'");
+ console.log(validatePIN('1234')) //, true, "Wrong output for '1234'");
+ console.log(validatePIN('0000')) //, true, "Wrong output for '0000'");
+ console.log(validatePIN('11f1')) //, true, "Wrong output for '1111'");
+ console.log(validatePIN('123456')) //, true, "Wrong output for '123456'");
+ console.log(validatePIN('098765')) //, true, "Wrong output for '098765'");
+ console.log(validatePIN('000000')) //, true, "Wrong output for '000000'");
+ console.log(validatePIN('123456')) //, true, "Wrong output for '123456'");
+ console.log(validatePIN('090909')) //, true, "Wrong output for '090909'");
+
+ // -----------------------------------------------
+
+ function simpleMultiplication(number) {
+    //  if (number  % 2 === 0) {
+    //      return number * 8; 
+    //  } return number * 9;
+   return number % 2 === 0 ? number * 8 : number * 9;
+    
+ }
+console.log(simpleMultiplication(2)) //, 16, 'Should return double given argument..');
+console.log(simpleMultiplication(1)) //, 9, 'Should return double given argument..');
+console.log(simpleMultiplication(8)) //, 64, 'Should return given argument times eight...');
+console.log(simpleMultiplication(4)) //, 32, 'Should return given argument times eight...');
+console.log(simpleMultiplication(5)) //, 45, 'Should return given argument times nine...');
+// -------------------------------------------
+
+function getMiddle(s)
+{
+  let middle = Math.floor(s.length/2);
+  
+  return s.length % 2 === 0
+        ? s.slice(middle-1, middle+1)
+        : s.slice(middle, middle+1);
+  
+}
+console.log(getMiddle("test")) //,"es");
+console.log(getMiddle("testing")) //,"t");
+console.log(getMiddle("middle")) //,"dd");
+console.log(getMiddle("A")) //,"A");
+
+// ------------------------------------------------
+
+function oddOrEven(array) {
+    //  return arr.reduce((a, b) => a + b, 0) % 2 ? 'odd' : 'even';
+    let sum = 0;
+    array.forEach(function (elem) {
+        sum += elem;
+    })
+    if (sum % 2 === 0 || sum === 0) {
+        return 'even'
+    }return 'odd'
+}
+console.log(oddOrEven([0])) //, 'even');
+console.log(oddOrEven([1, 1, 3])) //, 'odd');
+console.log(oddOrEven([2, 4, 6])) //, 'even');
+console.log(oddOrEven([1, 3, 3])) //, 'odd');
